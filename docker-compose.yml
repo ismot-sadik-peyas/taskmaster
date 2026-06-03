@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  taskmaster:
+    build: .
+    container_name: taskmaster-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=taskmaster-secret-202
