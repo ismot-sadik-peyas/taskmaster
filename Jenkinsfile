@@ -58,7 +58,7 @@ pipeline {
             steps {
                 echo "Deploying test container..."
                 bat 'docker rm -f taskmaster-test || exit 0'
-                bat 'docker run -d --name taskmaster-test -p 4001:3000 %IMAGE_NAME%:test'
+                bat 'docker run -d --name taskmaster-test -p 3001:3000 %IMAGE_NAME%:test'
             }
         }
 
@@ -69,7 +69,7 @@ pipeline {
                 echo "Promoting image to production..."
                 bat 'docker rm -f taskmaster-prod || exit 0'
                 bat 'docker tag %IMAGE_NAME%:test %IMAGE_NAME%:prod'
-                bat 'docker run -d --name taskmaster-prod -p 4000:3000 %IMAGE_NAME%:prod'
+                bat 'docker run -d --name taskmaster-prod -p 3000:3000 %IMAGE_NAME%:prod'
             }
         }
 
