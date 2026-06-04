@@ -29,18 +29,16 @@
 ##  Tech Stack
 
 
-| Layer 				|		 Technology 		|
-| --- --- ---			| --- --- --- --- --- --- 	|
-| **Backend** 			| Node.js, Express 			|
-| **Frontend** 			| HTML5, CSS3, JavaScript 	|
-| **Authentication**	|     JWT 					|
-| **Testing** 			|      Jest				 	|
-| **Containerization** 	| Docker 					|
-| **CI/CD**				| Jenkins 					|
-| **Code Quality**	 	| SonarCloud 				|
-| **Monitoring** 	 	|prom-client (``/metrics``)	|
-
---- --- --- --- --- --- --- --- --- --- --- --- --- -
+| Layer | Technology |
+| --- | --- |
+| **Backend** | Node.js, Express |
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Authentication** | JWT |
+| **Testing** | Jest |
+| **Containerization** | Docker |
+| **CI/CD** | Jenkins |
+| **Code Quality** | SonarCloud |
+| **Monitoring** | prom-client (``/metrics``) |
 
 ## Project Structure
 
@@ -65,7 +63,6 @@ taskmaster/
 └── .gitignore
 ```
 
----
 
 ##  Jenkins Pipeline Stages
 
@@ -77,9 +74,8 @@ taskmaster/
 6. **Release to Production** — Deploy the stable container live on port `4000`.
 7. **Monitoring** — Run automated checks against `/health` and `/metrics`.
 
----
 
-## 🧪 Quick Start
+##  Quick Start
 
 ### Using Docker (Recommended)
 ```bash
@@ -104,8 +100,8 @@ npm start
 ```
 Once the backend server starts, open **`frontend/public/index.html`** directly in any modern web browser.
 
----
 
-## 📊 SonarCloud Quality Gate
+
+## SonarCloud Quality Gate
 * **Project Key**: `ismot-sadik-peyas_taskmaster`
 * **Monitored Metrics**: Code Reliability, Security Hotspots, Technical Debt, and Test Coverage.
