@@ -64,9 +64,7 @@ pipeline {
 
         /* 6. RELEASE TO PRODUCTION */
         stage('Release to Production') {
-            when {
-                branch 'main'
-            }
+            
             steps {
                 echo "Promoting image to production..."
                 bat 'docker rm -f taskmaster-prod || exit 0'
