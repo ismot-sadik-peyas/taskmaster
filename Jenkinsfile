@@ -33,15 +33,21 @@ pipeline {
         }
 
         /* 3. CODE QUALITY (SONARQUBE) */
-        stage('Code Quality') {
-            steps {
-                bat '''
-                curl -L -o sonar.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-windows.zip
-                powershell -Command "Expand-Archive sonar.zip -DestinationPath . -Force"
-                sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat -Dsonar.login=%SONAR_TOKEN%
-                '''
-            }
+      stage('Code Quality - SonarCloud') {
+         steps {
+        bat '''
+        curl -L -o sonar.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-windows.zip
+        powershell -Command "Expand-Archive sonar.zip -DestinationPath . -Force"
+        sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat ^
+          -Dsonar.login=%SONAR_TOKEN% ^
+          -Dsonar.organization=ismot-sadik-peyas ^
+          -Dsonar.projectKey=ismot-sadik-peyas_taskmaster ^
+          -Dsonar.sources=backend/src ^
+          -Dsonar.host.url=https://sonarcloud.io
+        '''
         }
+    }
+
 
 
         /* 4. SECURITY */
