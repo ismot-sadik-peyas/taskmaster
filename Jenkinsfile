@@ -77,9 +77,9 @@ pipeline {
         stage('Monitoring') {
             steps {
                 echo "Checking application health..."
-                bat 'curl -f http://localhost:4000/health'
+                bat 'curl -f http://localhost:3000/health'
                 echo "Checking Prometheus-style metrics..."
-                bat 'curl -f http://localhost:4000/metrics'
+                bat 'curl -f http://localhost:3000/metrics'
             }
         }
     }
