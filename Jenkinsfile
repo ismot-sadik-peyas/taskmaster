@@ -33,21 +33,16 @@ pipeline {
         }
 
         /* 3. CODE QUALITY (SONARQUBE) */
-        stage('Code Quality - SonarQube') {
+        stage('Code Quality') {
             steps {
-                echo "Running SonarQube analysis..."
-
                 bat '''
                 curl -L -o sonar.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-windows.zip
                 powershell -Command "Expand-Archive sonar.zip -DestinationPath . -Force"
-                sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat ^
-                  -Dsonar.login=%SONAR_TOKEN% ^
-                  -Dsonar.projectKey=taskmaster ^
-                  -Dsonar.sources=backend/src ^
-                  -Dsonar.host.url=http://localhost:9000
+                sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat -Dsonar.login=%SONAR_TOKEN%
                 '''
             }
         }
+
 
         /* 4. SECURITY */
         stage('Security Scan') {
