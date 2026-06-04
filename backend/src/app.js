@@ -65,6 +65,7 @@ app.get('/metrics', async (req, res) => {
   res.end(await register.metrics());
 });
 
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);

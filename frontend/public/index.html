@@ -257,13 +257,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-
       </div>
     </div>
 
-    <div class="demo-box">
-      <div class="demo-title">Demo credentials</div>
-      <div class="demo-row"><span>Username</span><span>admin</span></div>
-      <div class="demo-row"><span>Password</span><span>Admin123!</span></div>
-    </div>
-    <button class="btn btn-demo" onclick="fillDemo()"><i class="fa-solid fa-bolt"></i> Fill demo credentials</button>
-
+   
     <div class="auth-tabs">
       <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign in</div>
       <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Create account</div>
@@ -304,8 +298,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-
       <button class="nav-btn" onclick="showPage('tasks')"><i class="fa-solid fa-list-check"></i> My Tasks <span class="nav-badge" id="task-badge">0</span></button>
       <div class="nav-sec">DevOps</div>
       <button class="nav-btn" onclick="showPage('api')"><i class="fa-solid fa-terminal"></i> API Explorer</button>
-      <button class="nav-btn" onclick="showPage('pipeline')"><i class="fa-solid fa-code-branch"></i> Pipeline</button>
-      <button class="nav-btn" onclick="showPage('monitor')"><i class="fa-solid fa-chart-line"></i> Monitoring</button>
+      
+     
       <div class="nav-sec">Account</div>
       <button class="nav-btn" onclick="showPage('profile')"><i class="fa-solid fa-user"></i> Profile</button>
     </nav>
@@ -570,11 +564,7 @@ function switchTab(t){
   document.getElementById('tab-login').classList.toggle('active',t==='login');
   document.getElementById('tab-register').classList.toggle('active',t==='register');
 }
-function fillDemo(){
-  document.getElementById('l-user').value='admin';
-  document.getElementById('l-pass').value='Admin123!';
-  toast('Demo credentials filled!','info');
-}
+
 
 async function doLogin(){
   const u=document.getElementById('l-user').value.trim();
